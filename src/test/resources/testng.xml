@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+     Полный регресс: все подключённые ниже классы, без фильтра по группам - как "safe", так
+     и "mutating" тесты (см. group на @Test аннотациях). "destructive" (меняют статус
+     реальных заказов) сюда не подключать без согласования с владельцем. Только read-only
+     подмножество:
+       mvn test -DsuiteXmlFile=src/test/resources/testng-safe.xml
+-->
+<suite name="TezDelivery Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.tezdelivery.tests.ScreenshotOnFailureListener"/>
+        <listener class-name="com.tezdelivery.tests.RetryAnalyzerTransformer"/>
+    </listeners>
+    <test name="Orders">
+        <classes>
+            <class name="com.tezdelivery.tests.OrdersTest"/>
+        </classes>
+    </test>
+    <test name="Notifications">
+        <classes>
+            <class name="com.tezdelivery.tests.NotificationsTest"/>
+        </classes>
+    </test>
+    <test name="Profile">
+        <classes>
+            <class name="com.tezdelivery.tests.ProfileTest"/>
+        </classes>
+    </test>
+</suite>

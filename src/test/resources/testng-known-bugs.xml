@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+     Известные баги приложения (group "known-bug", read-only). Падают, пока баг не
+     исправлен - зелёный тест здесь значит, что баг починили (обновить
+     docs/exploration-notes.md и перенести проверку в обычный тест).
+
+     Запуск: mvn test -DsuiteXmlFile=src/test/resources/testng-known-bugs.xml
+-->
+<suite name="TezDelivery Known Bugs" verbose="1">
+    <listeners>
+        <listener class-name="com.tezdelivery.tests.ScreenshotOnFailureListener"/>
+    </listeners>
+    <test name="Known Bugs">
+        <classes>
+            <class name="com.tezdelivery.tests.KnownBugsTest"/>
+        </classes>
+    </test>
+</suite>

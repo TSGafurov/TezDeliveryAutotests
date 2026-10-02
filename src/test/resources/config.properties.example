@@ -1,0 +1,16 @@
+appium.url=http://127.0.0.1:4723
+app.package=uz.agrobank.chakana_delivery
+app.activity=.MainActivity
+
+# Реальный аккаунт курьера на живом продовом бэкенде (тот же номер, что и в
+# TezChakanaAutotests) - не изолированный QA-аккаунт. Поэтому config.properties не
+# хранится в git (см. .gitignore): скопируй этот файл в config.properties рядом и подставь
+# реальный phone.number, либо передавай флагом -Dphone.number=... без правки файла.
+phone.number=CHANGE_ME
+# Статический тестовый OTP (проверен вживую 2026-10-02).
+otp.code=081020
+# Необязательно: udid устройства. Без него берётся единственное устройство из `adb devices`.
+# device.udid=emulator-5554
+
+reference.screen.width=1080
+reference.screen.height=2400
